@@ -1,0 +1,71 @@
+h1{
+    color:red;
+    font-size: 50px;
+}
+
+ul li{
+    color:red;
+}
+.containerLista{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnLargura{
+
+    width: 30px;
+}
+
+.lista{
+
+    width: 200px;
+    background-color: rgb(219, 181, 181);
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    padding: 0px 10px 0px 10px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+a:link{
+    color: blue;
+}
+
+a:hover{
+    color: white;
+    background-color: black;
+}
+
+a:visited{
+    color: gray;
+}
+
+a:active{
+    color:orange;
+}
+
+
+.meuDestaque{
+    color: yellow;
+    background-color: black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.tituloTabela{
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.containerAmarelo{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border: black solid 3px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 30px;
+}
