@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <section>
+  <section id="imc-form">
     <h1>Calculadora de IMC</h1>
 
-    <form id="imc-form">
+    <form >
       <div class="form-group">
         <label for="nome">Nome:</label>
         <input type="text" id="txtNome" name="txtNome" minhaTag="mTxtNome" required>
@@ -36,7 +36,7 @@
         <input type="number" id="txtAltura" name="txtAltura" step="0.01" minhaTag="mTxtAltura" required>
       </div>
 
-      <button type="submit">Avaliar</button>
+      <button id="form-agendamento" type="submit">Avaliar</button>
       <br>
       <textarea class="form-group" name="txtResultado" id="txtResultado" cols="30" rows="10"></textarea>
     </form>

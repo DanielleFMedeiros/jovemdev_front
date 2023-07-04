@@ -1,53 +1,55 @@
-document.getElementById('imc-form').addEventListener('submit', function (event) {
-  event.preventDefault(); // Impede o envio do formulário
+window.addEventListener('DOMContentLoaded', function () {
+  var form = document.querySelector('form');
+  var txtNome = document.querySelector('#txtNome');
+  var txtPeso = document.querySelector('#txtPeso');
+  var txtAltura = document.querySelector('#txtAltura');
+  var txtResultado = document.querySelector('#txtResultado');
 
-  // Obter os valores dos campos
-  var nome = document.getElementById('nome').value;
-  var sexo = document.querySelector('input[name="sexo"]:checked').value;
-  var peso = parseFloat(document.getElementById('peso').value);
-  var altura = parseFloat(document.getElementById('altura').value);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  // Calcular o IMC
-  var imc = peso / (altura * altura);
+    var nome = txtNome.value;
+    var peso = parseFloat(txtPeso.value);
+    var altura = parseFloat(txtAltura.value);
+    var sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-  // Definir a tabela de resultados do IMC
-  var tabelaResultados = {};
+    var imc = peso / (altura * altura);
 
-  // Definir a tabela de resultados para mulheres
-  tabelaResultados['feminino'] = {
-    'abaixoPeso': [0, 19.1],
-    'pesoIdeal': [19.1, 25.8],
-    'poucoAcimaPeso': [25.9, 27.3],
-    'acimaPeso': [27.4, 32.3],
-    'obesidade': [32.4, Infinity]
-  };
+    var resultado = '';
 
-  // Definir a tabela de resultados para homens
-  tabelaResultados['masculino'] = {
-    'abaixoPeso': [0, 20.7],
-    'pesoIdeal': [20.7, 26.4],
-    'poucoAcimaPeso': [26.5, 27.8],
-    'acimaPeso': [27.9, 31.1],
-    'obesidade': [31.2, Infinity]
-  };
-
-  // Definir a categoria com base no IMC e sexo
-  var categoria = "";
-  var tabelaSexo = tabelaResultados[sexo];
-  for (var key in tabelaSexo) {
-    var faixa = tabelaSexo[key];
-    if (imc >= faixa[0] && imc <= faixa[1]) {
-      categoria = key;
-      break;
+    if (sexo === 'masculino') {
+      if (imc < 20.7) {
+        resultado = 'Abaixo do peso';
+      } else if (imc < 26.4) {
+        resultado = 'Peso normal';
+      } else if (imc < 27.8) {
+        resultado = 'Marginalmente acima do peso';
+      } else if (imc < 31.1) {
+        resultado = 'Acima do peso ideal';
+      } else {
+        resultado = 'Obeso';
+      }
+    } else if (sexo === 'feminino') {
+      if (imc < 19.1) {
+        resultado = 'Abaixo do peso';
+      } else if (imc < 25.8) {
+        resultado = 'Peso normal';
+      } else if (imc < 27.3) {
+        resultado = 'Marginalmente acima do peso';
+      } else if (imc < 32.3) {
+        resultado = 'Acima do peso ideal';
+      } else {
+        resultado = 'Obeso';
+      }
     }
-  }
 
-  // Exibir o resultado
-  nome = document.getElementById('txtNome').value;
-  idade = document.getElementById('txtIdade').value;
-  msg = `Nome: ${nome}\nIdade:${idade}`;
-  document.getElementById('txtResultado').value = msg;
-  return false;
+    var mensagem = 'Nome: ' + nome + '\n';
+    mensagem += 'Sexo: ' + (sexo === 'masculino' ? 'Masculino' : 'Feminino') + '\n';
+    mensagem += 'Peso: ' + peso + ' kg\n';
+    mensagem += 'Altura: ' + altura + ' metros\n';
+    mensagem += 'Resultado do IMC: ' + resultado;
+    
+    txtResultado.value = mensagem;
+    
+  });
 });
-
-
