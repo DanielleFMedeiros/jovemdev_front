@@ -8,13 +8,81 @@
     <title>Formulário</title>
 </head>
 <body>
-    <form>
-        <h1>Formulário de Consulta</h1>
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome">
-            <button>Buscar</button>
+    <div class="container">
+        <h1>Agendamento de Consulta</h1>
+        <form>
+        <div class="form-group">
+            <label for="nome">*Nome:</label>
+            <input type="text" id="nome" placeholder="João"name="nome" required>
         </div>
-    </form>
+        <div class="form-group">
+            <label for="email">*E-mail:</label>
+            <input type="email" placeholder="joao@hotmail.com" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="cpf">*CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="xxx.xxx.xxx-xx" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+        </div>
+        <div class="form-group">
+            <label for="telefone">*Telefone:</label>
+            <input type="tel" placeholder="(48)99876-5432" id="telefone" name="telefone" required>
+        </div>
+        <div class="form-group">
+            <label for="sexo">*Sexo:</label>
+            <label>
+            <input type="radio" name="sexo" value="masculino" required> Masculino
+            </label>
+            <label>
+            <input type="radio" name="sexo" value="feminino" required> Feminino
+            </label>
+            <label>
+            <input type="radio" name="sexo" value="outro" required> Outro
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="estado-civil">*Estado Civil:</label>
+            <label>
+            <input type="radio" name="estado-civil" value="solteiro" required> Solteiro(a)
+            </label>
+            <label>
+            <input type="radio" name="estado-civil" value="casado" required> Casado(a)
+            </label>
+            <label>
+            <input type="radio" name="estado-civil" value="divorciado" required> Divorciado(a)
+            </label>
+            <label>
+            <input type="radio" name="estado-civil" value="viuvo" required> Viúvo(a)
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="especialidade">*Especialidade do médico:</label>
+            <select id="especialidade" name="especialidade" required>
+            <option value="">Selecione uma especialidade</option>
+            <option value="cardiologia">Cardiologia</option>
+            <option value="dermatologia">Dermatologia</option>
+            <option value="endocrinologia">Endocrinologia</option>
+            <option value="gastroenterologia">Gastroenterologia</option>
+            <option value="neurologia">Neurologia</option>
+            <option value="oftalmologia">Oftalmologia</option>
+            <option value="ortopedia">Ortopedia</option>
+            <option value="pneumologia">Pneumologia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="preferencia-medico">Preferência por Médico:</label>
+            <textarea id="preferencia-medico" name="preferencia-medico"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="data">*Data e horário:</label>
+            <input type="datetime-local" id="data" name="data" required>
+        </div>
+        <div class="form-group">
+            <label for="foto">Foto do cartão (plano de saúde):</label>
+            <input type="file" id="foto" name="foto" accept=".png, .jpg, .jpeg">
+        </div>
+        
+        <input type="submit" value="Agendar">
+        </form>
+    </div>
 </body>
 </html>
