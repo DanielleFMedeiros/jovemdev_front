@@ -7,7 +7,10 @@
 
 //tentar usar const em tudo.
 function enviaForm(){
-    alert('xx');
+    nome = document.getElementById('txtNome').value;
+    idade = document.getElementById('txtIdade').value;
+    msg = `Nome: ${nome}\nIdade:${idade}`;
+    document.getElementById('txtDados').value=msg;
     return false;
 }
 function tiposDados() {
