@@ -5,14 +5,12 @@ body {
   min-height: 100vh;
 }
 
-
-
 .container {
   text-align: left;
 }
 
 .form-group {
-  margin-bottom: 30px ;
+  margin-bottom: 30px;
   text-align: left;
 
 }
@@ -21,7 +19,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 10);
   padding-left: 30px;
 }
-
 
 label {
   display: inline-block;
